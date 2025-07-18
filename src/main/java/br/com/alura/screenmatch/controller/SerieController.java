@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.file.Path;
 import java.util.List;
 
 @RestController
@@ -41,6 +42,11 @@ public class SerieController {
     @GetMapping("/{id}/temporadas/todas")
     public List <EpisodioDTO> obterTodasTemporadas(@PathVariable Long id) {
         return servico.obterTodasTemporadas(id);
+    }
+
+    @GetMapping("/{id}/temporadas/{numero}")
+    public List<EpisodioDTO> obterTemporadasPorNumero(@PathVariable Long id, @PathVariable Long numero) {
+        return servico.obterTodasTemporadasPorNumero(id, numero);
     }
 
 }
